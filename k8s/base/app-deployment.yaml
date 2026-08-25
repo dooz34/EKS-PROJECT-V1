@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-yonis-app
+  labels:
+    app: eks-yonis-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: eks-yonis-app
+  template:
+    metadata:
+      labels:
+        app: eks-yonis-app
+    spec:
+      containers:
+        - name: eks-yonis-app
+          image: 047213537056.dkr.ecr.eu-west-2.amazonaws.com/eks-yonis-app:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eks-yonis-app
+spec:
+  selector:
+    app: eks-yonis-app
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

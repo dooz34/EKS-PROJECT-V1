@@ -12,4 +12,4 @@ spec:
       - dns01:
           route53:
             region: eu-west-2
-            hostedZoneID: Z04313432YCG2YCEGA9TM
+            hostedZoneID: Z08641051VVI6N4QFJ66J

@@ -16,7 +16,7 @@ variable "cluster_name" {
 variable "domain_name" {
   description = "Root domain in Route 53 for this project"
   type        = string
-  default     = "k8-yonis.dev"
+  default     = "eks.k8-yonis.dev"
 }
 
 variable "azs" {
