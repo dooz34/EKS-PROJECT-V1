@@ -1,0 +1,21 @@
+# Monitoring stack installed via:
+# helm install monitoring prometheus-community/kube-prometheus-stack \
+#   --namespace monitoring --create-namespace \
+#   --set grafana.adminPassword=admin123
+#
+# ingress-nginx upgraded to expose Prometheus metrics:
+# helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+#   --namespace ingress-nginx \
+#   --set controller.service.type=LoadBalancer \
+#   --set controller.service.annotations."service\.beta\.kubernetes\.io/aws-load-balancer-type"=nlb \
+#   --set controller.metrics.enabled=true \
+#   --set controller.metrics.serviceMonitor.enabled=true \
+#   --set controller.metrics.serviceMonitor.additionalLabels.release=monitoring
+#
+# Dashboards used:
+# - Built-in kube-prometheus-stack dashboards (Kubernetes / Compute Resources / *, Node Exporter, etc.)
+# - Grafana.com dashboard ID 9614 (NGINX Ingress controller) for Ingress traffic
+#
+# Access (local dev only, via port-forward):
+# kubectl port-forward svc/monitoring-grafana -n monitoring 3000:80
+# admin / admin123
