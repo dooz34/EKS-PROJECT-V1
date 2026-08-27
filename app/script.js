@@ -174,6 +174,14 @@ document.addEventListener('keydown', (e) => {
     ArrowDown: 'down',
     ArrowLeft: 'left',
     ArrowRight: 'right',
+    w: 'up',
+    W: 'up',
+    s: 'down',
+    S: 'down',
+    a: 'left',
+    A: 'left',
+    d: 'right',
+    D: 'right',
   };
   if (map[e.key]) {
     e.preventDefault();
