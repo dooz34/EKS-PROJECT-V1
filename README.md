@@ -37,6 +37,28 @@ CI/CD (GitHub Actions), and monitoring (Prometheus + Grafana).
 **Pipeline 2 — Docker, Trivy, Deploy to EKS:**
 ![Pipeline 2 success](docs/images/pipeline2-docker-deploy-success.png)
 
+## GitOps — ArgoCD
+
+ArgoCD continuously monitors this repo and auto-syncs the cluster to match
+`k8s/base/`. Any change pushed to that path is automatically applied — no
+manual `kubectl apply` required.
+
+![ArgoCD sync status](docs/images/argocd-sync.png)
+
+**To view the ArgoCD UI yourself:**
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+Then open `https://localhost:8080` in a browser.
+
+- **Username:** `admin`
+- **Password:**
+```bash
+$encoded = kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}"
+[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encoded))
+```
+(PowerShell. On Mac/Linux: `kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d`)
+
 ## Project Structure
 EKS-PROJECT-V1/
 ├── .github/
