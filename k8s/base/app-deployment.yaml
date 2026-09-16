@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: eks-yonis-app
-          image: 047213537056.dkr.ecr.eu-west-2.amazonaws.com/eks-yonis-app:76051cb4396d2df4c6bf6ecec1a13076ad0abf11
+                   image: 047213537056.dkr.ecr.eu-west-2.amazonaws.com/eks-yonis-app:4ef973d366cb325e695c1561754c4bc7f870fde2
           ports:
             - containerPort: 80
           resources:
