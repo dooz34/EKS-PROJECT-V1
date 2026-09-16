@@ -6,6 +6,9 @@ CI/CD (GitHub Actions), and monitoring (Prometheus + Grafana).
 
 **Live at:** `https://eks.k8-yonis.dev`
 
+## Live Application
+![Live app](docs/images/live-site.png)
+
 ## Status — complete
 
 - [x] Terraform: VPC (public/private subnets across 2 AZs), remote state (S3 + DynamoDB)
@@ -150,4 +153,3 @@ a dedicated IAM role, no long-lived secrets stored in GitHub.
 
 Worker nodes run in **private subnets only**; the public subnets exist purely
 for the internet gateway / load balancer.
-
