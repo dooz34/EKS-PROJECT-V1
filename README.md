@@ -24,7 +24,7 @@ CI/CD (GitHub Actions), and monitoring (Prometheus + Grafana).
 
 ## Architecture
 
-![EKS Project Architecture](docs/architecture.png)
+![EKS Project Architecture](docs/images/newwweks.drawio.png)
 
 ## CI/CD Pipeline Runs
 
